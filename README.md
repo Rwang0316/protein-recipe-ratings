@@ -2,6 +2,8 @@
 
 ### Author: Richard Wang
 
+# Introduction
+
 ### Dataset Overview
 
 This project uses the **Food.com Recipes dataset**, which combines recipe-level information with user interaction data. The dataset was constructed by merging two tables: `RAW_recipes`, which contains detailed information about each recipe, and `interactions`, which contains user ratings and reviews. After merging these datasets, I computed the **average rating for each recipe** to summarize user feedback.
@@ -44,3 +46,12 @@ The percent daily value (PDV) of protein contained in the recipe. This represent
 The total calorie content of the recipe. This variable provides context for interpreting protein levels.
 
 Using these variables, I construct a derived feature called **protein density**, which represents the amount of protein relative to total calories. This feature helps capture how protein-dominant a recipe is within its overall nutritional profile.
+
+
+# Data Cleaning and Exploratory Data Analysis
+# Assessment of Missingness
+# Hypothesis Testing
+# Framing a Prediction Problem
+# Baseline Model
+# Final Model
+# Fairness Analysis
