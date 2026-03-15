@@ -336,3 +336,59 @@ The final Random Forest model achieved:
 The lower RMSE values indicate that the final model produces **more accurate predictions of recipe preparation time** than the baseline model. The improvement suggests that the engineered features and the more flexible modeling algorithm better capture patterns in the data that influence cooking time.
 
 # Fairness Analysis
+
+To evaluate whether the final model performs differently across types of recipes, I conducted a **fairness analysis using a permutation test**. The goal is to determine whether the model produces larger prediction errors for certain types of recipes.
+
+### Groups
+
+Recipes were divided into two groups based on the **number of ingredients**:
+
+- **Group X:** recipes with **more than the median number of ingredients**  
+- **Group Y:** recipes with **the median number of ingredients or fewer**
+
+This grouping reflects differences in **recipe complexity**, since recipes with many ingredients may require more preparation work and could be harder for the model to predict accurately.
+
+### Evaluation Metric
+
+The evaluation metric used is **Root Mean Squared Error (RMSE)**. Since the model predicts a continuous outcome (recipe preparation time), RMSE measures the typical prediction error in minutes.
+
+### Test Statistic
+
+The test statistic is defined as the difference in RMSE between the two groups:
+
+Test statistic = RMSE(Group X) − RMSE(Group Y)
+
+A **positive value** indicates that the model performs worse for recipes with many ingredients.
+
+### Hypotheses
+
+**Null Hypothesis (H₀):**  
+The model performs equally well for both groups. Any observed difference in RMSE between the two groups is due to random chance.
+
+**Alternative Hypothesis (H₁):**  
+The model performs worse for recipes with many ingredients than for recipes with fewer ingredients.
+
+### Observed Statistic
+
+The observed RMSE values were:
+
+- **RMSE (few ingredients):** 69.06  
+- **RMSE (many ingredients):** 73.46  
+
+This produces an observed test statistic of:
+
+**4.40 minutes**
+
+This indicates that the model's prediction error is larger for recipes with many ingredients.
+
+### Permutation Test
+
+To determine whether this difference could occur by chance, I performed a **permutation test with 1000 permutations**, randomly shuffling the group labels and recalculating the test statistic each time to generate a null distribution.
+
+The resulting **p-value was 0.002**.
+
+### Conclusion
+
+Using a significance level of **α = 0.05**, the p-value is smaller than the threshold. Therefore, we **reject the null hypothesis**.
+
+This suggests that the model performs **significantly worse for recipes with many ingredients than for recipes with fewer ingredients**. In other words, the model may have a fairness issue related to recipe complexity, as it produces larger prediction errors for more complex recipes.
