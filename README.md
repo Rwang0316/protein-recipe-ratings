@@ -121,7 +121,7 @@ The median ratings appear fairly similar across all four protein density groups,
 
 ## Interesting Aggregates
 
-To further examine the relationship between protein density and user ratings, I grouped recipes into four protein density levels based on quartiles: **Low, Medium-Low, Medium-High, and High**. I then computed summary statistics of the average rating within each group.
+To further examine the relationship between protein density and user ratings, I computed summary statistics of the average rating within each group.
 
 | protein_group   |   count |   mean |   median |   std |
 |:----------------|--------:|-------:|---------:|------:|
@@ -130,10 +130,11 @@ To further examine the relationship between protein density and user ratings, I 
 | Medium-High     |   19727 |  4.615 |        5 | 0.635 |
 | High            |   19728 |  4.601 |        5 | 0.63  |
 
-The table summarizes the number of recipes and rating statistics for each protein density group. The average ratings are very similar across groups, ranging from roughly **4.60 to 4.66**, and the median rating is **5.0 in all groups**. This suggests that recipes with higher protein density do not appear to receive noticeably higher ratings than those with lower protein density.
+The table reports summary statistics of average recipe ratings within each protein density group. Because the groups were created using quartiles, each group contains nearly the same number of recipes (about 19,700), which allows for a balanced comparison across protein density levels.
 
-While the distributions are very similar, these small differences motivate a **formal hypothesis test** to determine whether any observed differences could simply be due to random variation.
+Across the four groups, the average ratings range from approximately **4.60 to 4.66**, and the median rating is **5.0 for all groups**. The standard deviations are also very similar, indicating that the spread of ratings is comparable across protein density levels.
 
+These aggregate statistics provide a numerical summary of how ratings are distributed within each group and help guide the next step of the analysis: formally testing whether any observed differences in ratings across protein density levels are statistically significant.
 
 
 
