@@ -4,7 +4,7 @@
 
 # Introduction
 
-### Dataset Overview
+## Dataset Overview
 
 This project uses the **Food.com Recipes dataset**, which combines recipe-level information with user interaction data. The dataset was constructed by merging two tables: `RAW_recipes`, which contains detailed information about each recipe, and `interactions`, which contains user ratings and reviews. After merging these datasets, I computed the **average rating for each recipe** to summarize user feedback.
 
@@ -12,7 +12,7 @@ The final merged dataset contains **78,167 recipes**, with each row representing
 
 ---
 
-### Research Question
+## Research Question
 
 The central question for this project is:
 
@@ -22,7 +22,7 @@ Rather than examining the absolute amount of protein in a recipe, I focus on **p
 
 ---
 
-### Why This Question Matters
+## Why This Question Matters
 
 In recent years, many food brands and recipes have increasingly marketed themselves as **“high protein.”** Protein is commonly associated with health, fitness, and nutritional quality, and it has become a strong marketing signal in the food industry.
 
@@ -32,7 +32,7 @@ By studying the relationship between protein density and user ratings, this proj
 
 ---
 
-### Relevant Columns
+## Relevant Columns
 
 Several variables in the dataset are particularly important for this analysis:
 
@@ -50,7 +50,7 @@ Using these variables, I construct a derived feature called **protein density**,
 
 # Data Cleaning and Exploratory Data Analysis
 
-### Data Cleaning
+## Data Cleaning
 
 Before beginning the analysis, I cleaned the Food.com recipes dataset to ensure that the variables used in the project were accurate, interpretable, and comparable across recipes.
 
@@ -77,6 +77,26 @@ Below are the first few rows of the cleaned dataset used for the analysis.
 | 412 broccoli casserole               |        40 |         6 |               9 |      194.8 |            22 |         0.112936  |            5 |
 | millionaire pound cake               |       120 |         7 |               7 |      878.3 |            20 |         0.0227713 |            5 |
 | 2000 meatloaf                        |        90 |        17 |              13 |      267   |            29 |         0.108614  |            5 |
+
+## Univariate Analysis
+
+To better understand the key variables used in this project, I examined the distributions of **protein density** and **average recipe ratings** separately.
+
+### Distribution of Protein Density
+
+
+
+The distribution of **protein density** is **right-skewed**, meaning that most recipes have relatively low protein density while a smaller number of recipes have much higher protein density. This suggests that highly protein-dense recipes are less common in the dataset, while most recipes contain more moderate or lower levels of protein relative to calories.
+
+
+
+### Distribution of Average Recipe Ratings
+
+The distribution of **average recipe ratings** is concentrated near the high end of the scale, especially around **4 to 5 stars**. This suggests that Food.com users tend to rate recipes positively overall, which may indicate **rating inflation** or a general tendency for users to leave favorable reviews.
+
+
+
+
 
 
 # Assessment of Missingness
