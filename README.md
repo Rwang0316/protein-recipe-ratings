@@ -90,7 +90,6 @@ To better understand the key variables used in this project, I examined the dist
   height="600"
   frameborder="0"
 ></iframe>
-
 The distribution of **protein density** is **right-skewed**, meaning that most recipes have relatively low protein density while a smaller number of recipes have much higher protein density. This suggests that highly protein-dense recipes are less common in the dataset, while most recipes contain more moderate or lower levels of protein relative to calories.
 
 ### Distribution of Average Recipe Ratings
@@ -101,7 +100,6 @@ The distribution of **protein density** is **right-skewed**, meaning that most r
   height="600"
   frameborder="0"
 ></iframe>
-
 The distribution of **average recipe ratings** is concentrated near the high end of the scale, especially around **4 to 5 stars**. This suggests that Food.com users tend to rate recipes positively overall, which may indicate **rating inflation** or a general tendency for users to leave favorable reviews.
 
 
