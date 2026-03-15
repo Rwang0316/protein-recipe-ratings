@@ -203,9 +203,7 @@ This statistic is appropriate because our research question asks whether one gro
 
 The significance level for this test is:
 
-\[
-\alpha = 0.05
-\]
+alpha = 0.05
 
 ### Test Procedure
 
