@@ -1,6 +1,6 @@
 # Do High-Protein Recipes Actually Get Better Ratings?
 
-### Author: Richard Wang
+Author: Richard Wang
 
 # Introduction
 
