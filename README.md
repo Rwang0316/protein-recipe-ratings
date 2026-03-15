@@ -244,7 +244,7 @@ Predicting preparation time can be useful for users when choosing which recipes 
 
 The response variable for this prediction task is:
 
-**`minutes` — the total preparation time of a recipe**
+**`minutes` - the total preparation time of a recipe**
 
 The goal of the model is to estimate this value using information about the recipe that is available before cooking begins.
 
@@ -252,8 +252,8 @@ The goal of the model is to estimate this value using information about the reci
 
 At the time of prediction, several relevant features are already known from the recipe listing. These include:
 
-- `n_ingredients` — the number of ingredients in the recipe  
-- `n_steps` — the number of preparation steps  
+- `n_ingredients` - the number of ingredients in the recipe  
+- `n_steps` - the number of preparation steps  
 - nutritional attributes such as `calories`
 
 Because these variables are part of the recipe description itself, they are known **before a user begins cooking**. Therefore, they can be safely used as predictors without introducing **data leakage**. Information that would only be available after the cooking process (such as user ratings) is not used as input features.
