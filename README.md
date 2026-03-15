@@ -286,7 +286,7 @@ To evaluate how well the model generalizes to **unseen data**, I split the datas
 
 The baseline model achieved an RMSE of **71.16 minutes on the training set** and **72.64 minutes on the test set**. Because these values are very similar, the model appears to generalize well to unseen data without severe overfitting. However, the RMSE is still relatively large, suggesting that the baseline model leaves room for improvement in the final model.
 
-# Final Model
+## Final Model
 
 To improve upon the baseline model, I engineered additional features and used a more flexible modeling algorithm.
 
@@ -305,23 +305,21 @@ These engineered features help represent aspects of the **recipe preparation pro
 
 ### Modeling Algorithm
 
-For the final model, I used a **RandomForestRegressor**, which is an ensemble tree-based model. Random forests combine predictions from many decision trees to capture complex patterns in the data. This algorithm is well suited for this task because recipe preparation time may depend on **nonlinear relationships and interactions between variables**, which tree-based models can capture more effectively than simple linear models.
+For the final model, I used a **RandomForestRegressor**, a tree-based ensemble model. Random forests combine predictions from many decision trees to capture complex patterns in the data. This algorithm is well suited for this task because preparation time may depend on **nonlinear relationships and interactions between variables**, which tree-based models can capture more effectively than simple linear models.
 
 ### Hyperparameter Selection
 
 To improve model performance and control model complexity, I tuned two hyperparameters using **GridSearchCV** with **5-fold cross-validation**:
 
-- `max_depth`: controls how deep each decision tree can grow  
-- `n_estimators`: the number of trees in the forest
+- `max_depth` – controls how deep each decision tree can grow
+- `n_estimators` – the number of trees in the forest
 
 Grid search evaluated several combinations of these hyperparameters and selected the model that minimized the **cross-validated RMSE**.
 
 The best-performing hyperparameters were:
 
-- **max_depth = X**
-- **n_estimators = Y**
-
-(where X and Y are the values returned by `grid_search.best_params_`).
+- **max_depth = 15**
+- **n_estimators = 200**
 
 ### Model Performance
 
@@ -330,10 +328,11 @@ The baseline linear regression model achieved:
 - **Training RMSE:** 71.16 minutes  
 - **Test RMSE:** 72.64 minutes  
 
-After adding engineered features and using a RandomForestRegressor, the final model achieved:
+The final Random Forest model achieved:
 
-- **Training RMSE:** `train_rmse_final`  
-- **Test RMSE:** `test_rmse_final`
+- **Training RMSE:** 69.18 minutes  
+- **Test RMSE:** 70.89 minutes  
 
-The lower test RMSE indicates that the final model provides **more accurate predictions of recipe preparation time** than the baseline model. The improvement suggests that the engineered features and the more flexible modeling algorithm allow the model to better capture patterns in the data that influence cooking time.
+The lower RMSE values indicate that the final model produces **more accurate predictions of recipe preparation time** than the baseline model. The improvement suggests that the engineered features and the more flexible modeling algorithm better capture patterns in the data that influence cooking time.
+
 # Fairness Analysis
