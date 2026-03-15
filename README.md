@@ -123,12 +123,12 @@ The median ratings appear fairly similar across all four protein density groups,
 
 To further examine the relationship between protein density and user ratings, I grouped recipes into four protein density levels based on quartiles: **Low, Medium-Low, Medium-High, and High**. I then computed summary statistics of the average rating within each group.
 
-<iframe
-  src="assets/protein-density-summary.html"
-  width="700"
-  height="350"
-  frameborder="0">
-</iframe>
+| protein_group   |   count |   mean |   median |   std |
+|:----------------|--------:|-------:|---------:|------:|
+| Low             |   19728 |  4.658 |        5 | 0.65  |
+| Medium-Low      |   19727 |  4.628 |        5 | 0.649 |
+| Medium-High     |   19727 |  4.615 |        5 | 0.635 |
+| High            |   19728 |  4.601 |        5 | 0.63  |
 
 The table summarizes the number of recipes and rating statistics for each protein density group. The average ratings are very similar across groups, ranging from roughly **4.60 to 4.66**, and the median rating is **5.0 in all groups**. This suggests that recipes with higher protein density do not appear to receive noticeably higher ratings than those with lower protein density.
 
