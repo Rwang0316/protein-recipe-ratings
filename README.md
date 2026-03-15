@@ -287,4 +287,40 @@ To evaluate how well the model generalizes to **unseen data**, I split the datas
 The baseline model achieved an RMSE of **71.16 minutes on the training set** and **72.64 minutes on the test set**. Because these values are very similar, the model appears to generalize well to unseen data without severe overfitting. However, the RMSE is still relatively large, suggesting that the baseline model leaves room for improvement in the final model.
 
 # Final Model
+
+To improve upon the baseline model, I engineered additional features and used a more flexible modeling algorithm.
+
+### Feature Engineering
+
+In addition to the baseline features `n_steps` and `n_ingredients`, I created two new features:
+
+- `ingredients_per_step = n_ingredients / n_steps`
+- `ingredient_step_interaction = n_ingredients * n_steps`
+
+The feature **`ingredients_per_step`** measures how many ingredients are handled within each instruction step. This feature helps capture the **complexity of each step in the recipe**. Recipes with many ingredients packed into relatively few steps may require more work per step, which could increase preparation time.
+
+The feature **`ingredient_step_interaction`** captures the interaction between the number of ingredients and the number of steps. Recipes that have both many ingredients and many steps are likely more complex overall. This interaction feature allows the model to better represent situations where preparation time grows when both factors increase together.
+
+These engineered features are useful because they reflect aspects of the **recipe preparation process**, which is the underlying data-generating mechanism that determines how long a recipe takes to prepare.
+
+### Modeling Algorithm
+
+For the final model, I used a **RandomForestRegressor**, a tree-based ensemble model. Random forests are capable of capturing **nonlinear relationships and interactions between variables**, which may be important when modeling recipe preparation time. Unlike linear regression, tree-based models do not assume a strictly linear relationship between features and the response variable.
+
+### Hyperparameter Tuning
+
+To improve model performance and prevent overfitting, I tuned the **`max_depth`** hyperparameter of the RandomForestRegressor using **GridSearchCV**. The `max_depth` parameter controls how deep each decision tree in the forest can grow. Smaller values limit model complexity and help prevent overfitting, while larger values allow the model to learn more detailed patterns.
+
+Grid search with cross-validation was used to evaluate several candidate values of `max_depth`, and the value that produced the lowest cross-validated error was selected for the final model.
+
+### Model Performance
+
+The baseline model achieved an RMSE of:
+
+- **71.16 minutes on the training set**
+- **72.64 minutes on the test set**
+
+After adding engineered features and using a RandomForestRegressor, the final model achieved a lower RMSE on the test set, indicating improved predictive performance.
+
+This improvement suggests that the engineered features and the more flexible modeling algorithm better capture the factors that influence recipe preparation time. By allowing nonlinear relationships and interactions between features, the final model is able to make more accurate predictions than the simpler baseline linear regression model.
 # Fairness Analysis
