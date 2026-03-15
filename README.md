@@ -102,6 +102,17 @@ The distribution of **protein density** is **right-skewed**, meaning that most r
 ></iframe>
 The distribution of **average recipe ratings** is concentrated near the high end of the scale, especially around **4 to 5 stars**. This suggests that Food.com users tend to rate recipes positively overall, which may indicate **rating inflation** or a general tendency for users to leave favorable reviews.
 
+## Bivariate Analysis
+
+To examine the relationship between nutritional composition and user ratings, I compared **average recipe ratings** across groups of **protein density**.
+
+### Protein Density vs Average Recipe Rating
+
+To make the relationship easier to interpret, I divided recipes into four groups based on protein density quartiles: **Low**, **Medium-Low**, **Medium-High**, and **High**. I then used a box plot to compare the distribution of `avg_rating` across these groups.
+
+The median ratings appear fairly similar across all four protein density groups, suggesting that recipes with higher protein density do not consistently receive higher average ratings. While there may be slight differences in spread or central tendency across groups, the plot does not show a strong visual association between protein density and recipe ratings.
+
+
 
 
 
