@@ -275,5 +275,16 @@ Another possible metric for regression is **Mean Absolute Error (MAE)**. While M
 Overall, RMSE provides an interpretable measure of prediction error in **minutes** while appropriately penalizing large prediction mistakes.
 
 # Baseline Model
+
+My baseline model predicts recipe preparation time (`minutes`) using two quantitative features: `n_steps` and `n_ingredients`. The variable `n_steps` represents the number of instruction steps in a recipe, while `n_ingredients` represents the number of ingredients required. Since both features are numerical, no categorical encoding was necessary.
+
+I implemented the model using a **scikit-learn Pipeline**, which ensures that preprocessing and model training are applied together in a single workflow. Missing values were handled using median imputation, and the predictive model is a **Linear Regression** model.
+
+To evaluate model performance, I used **Root Mean Squared Error (RMSE)**. RMSE measures the typical size of prediction errors in the same units as the response variable, which in this case is minutes.
+
+To evaluate how well the model generalizes to **unseen data**, I split the dataset into training and test sets. The model was trained on the training data and evaluated on the test data, which contains recipes the model did not see during training.
+
+The baseline model achieved an RMSE of **71.16 minutes on the training set** and **72.64 minutes on the test set**. Because these values are very similar, the model appears to generalize well to unseen data without severe overfitting. However, the RMSE is still relatively large, suggesting that the baseline model leaves room for improvement in the final model.
+
 # Final Model
 # Fairness Analysis
