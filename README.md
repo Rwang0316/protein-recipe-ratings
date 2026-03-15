@@ -87,7 +87,7 @@ To better understand the key variables used in this project, I examined the dist
 <iframe
   src="assets/protein-density.html"
   width="800"
-  height="400"
+  height="450"
   frameborder="0"
 ></iframe>
 The distribution of **protein density** is **right-skewed**, meaning that most recipes have relatively low protein density while a smaller number of recipes have much higher protein density. This suggests that highly protein-dense recipes are less common in the dataset, while most recipes contain more moderate or lower levels of protein relative to calories.
@@ -97,7 +97,7 @@ The distribution of **protein density** is **right-skewed**, meaning that most r
 <iframe
   src="assets/avg-rating.html"
   width="800"
-  height="400"
+  height="450"
   frameborder="0"
 ></iframe>
 The distribution of **average recipe ratings** is concentrated near the high end of the scale, especially around **4 to 5 stars**. This suggests that Food.com users tend to rate recipes positively overall, which may indicate **rating inflation** or a general tendency for users to leave favorable reviews.
@@ -113,11 +113,21 @@ To make the relationship easier to interpret, I divided recipes into four groups
 <iframe
   src="assets/protein-rating-boxplot.html"
   width="800"
-  height="400"
+  height="450"
   frameborder="0"
 ></iframe>
 
 The median ratings appear fairly similar across all four protein density groups, suggesting that recipes with higher protein density do not consistently receive higher average ratings. While there may be slight differences in spread or central tendency across groups, the plot does not show a strong visual association between protein density and recipe ratings.
+
+## Interesting Aggregates
+
+To further examine the relationship between protein density and user ratings, I grouped recipes into four protein density levels based on quartiles: **Low, Medium-Low, Medium-High, and High**. I then computed summary statistics of the average rating within each group.
+
+
+
+The table summarizes the number of recipes and rating statistics for each protein density group. The average ratings are very similar across groups, ranging from roughly **4.60 to 4.66**, and the median rating is **5.0 in all groups**. This suggests that recipes with higher protein density do not appear to receive noticeably higher ratings than those with lower protein density.
+
+While the distributions are very similar, these small differences motivate a **formal hypothesis test** to determine whether any observed differences could simply be due to random variation.
 
 
 
