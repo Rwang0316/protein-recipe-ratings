@@ -169,7 +169,7 @@ To better visualize this relationship, the plot below shows the distribution of 
 
 <iframe
     src="assets/missingness_n_ingredients.html"
-    width="1050"
+    width="1150"
     height="450"
     frameborder="0">
 </iframe>
