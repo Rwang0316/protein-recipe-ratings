@@ -49,6 +49,36 @@ Using these variables, I construct a derived feature called **protein density**,
 
 
 # Data Cleaning and Exploratory Data Analysis
+
+### Data Cleaning
+
+Before beginning the analysis, I cleaned the Food.com recipes dataset to ensure that the variables used in the project were accurate, interpretable, and comparable across recipes.
+
+The original data came from two files: `RAW_recipes`, which contains recipe-level information such as preparation time, ingredients, and nutritional values, and `interactions`, which contains user ratings and reviews. Because ratings are stored separately from the recipes themselves, I first merged these two datasets so that each recipe could be associated with the ratings given by users. After merging, I computed an `avg_rating` column representing the average rating for each recipe.
+
+Recipes with no ratings were removed from the dataset. Since the research question focuses on whether nutritional characteristics are associated with **user ratings**, recipes without ratings cannot contribute to this analysis and would introduce missing values in the target variable.
+
+Next, I cleaned the `nutrition` column. In the raw dataset, this column is stored as a string that represents a list of values rather than as individual numeric variables. According to the dataset documentation, the list contains values for calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates. I parsed this column and separated it into individual numeric columns so that these nutritional variables could be analyzed and used for feature construction.
+
+To better compare recipes of different sizes, I created a new feature called **protein density**, defined as the protein percent daily value divided by the total calories in the recipe. This transformation is important because absolute protein alone can be misleading; a recipe with high protein may simply have very high calories overall. Protein density provides a more meaningful measure of how protein-heavy a recipe is relative to its caloric content.
+
+After constructing this feature, I removed rows with missing values in either protein or calories, since these variables are necessary to compute protein density. Finally, I removed extreme outliers in protein density using the **interquartile range (IQR) rule**. Outliers may occur due to data entry issues or unusual recipes and can disproportionately influence visualizations and statistical analysis.
+
+These cleaning steps ensured that the dataset used in the analysis contains valid numeric variables, meaningful nutritional features, and reliable rating information.
+
+### Cleaned Dataset Preview
+
+Below are the first few rows of the cleaned dataset used for the analysis.
+
+| name                                 |   minutes |   n_steps |   n_ingredients |   calories |   protein_pdv |   protein_density |   avg_rating |
+|:-------------------------------------|----------:|----------:|----------------:|-----------:|--------------:|------------------:|-------------:|
+| 1 brownies in the world    best ever |        40 |        10 |               9 |      138.4 |             3 |         0.0216763 |            4 |
+| 1 in canada chocolate chip cookies   |        45 |        12 |              11 |      595.1 |            13 |         0.0218451 |            5 |
+| 412 broccoli casserole               |        40 |         6 |               9 |      194.8 |            22 |         0.112936  |            5 |
+| millionaire pound cake               |       120 |         7 |               7 |      878.3 |            20 |         0.0227713 |            5 |
+| 2000 meatloaf                        |        90 |        17 |              13 |      267   |            29 |         0.108614  |            5 |
+
+
 # Assessment of Missingness
 # Hypothesis Testing
 # Framing a Prediction Problem
