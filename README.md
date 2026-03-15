@@ -180,7 +180,6 @@ Overall, these results suggest that rating missingness is **not completely rando
 
 # Hypothesis Testing
 
-
 As mentioned in the introduction, this analysis investigates whether recipes with higher **protein density** tend to receive higher ratings from users. Protein density is defined as the amount of protein relative to the calorie content of a recipe. By comparing recipes with higher versus lower protein density, we can examine whether protein-heavy recipes tend to receive more favorable ratings.
 
 To investigate this question, we conducted a **permutation test**.
@@ -198,6 +197,10 @@ Recipes with **higher protein density** have **higher average ratings** than rec
 The **difference in mean average rating** between recipes with high protein density and recipes with low protein density.
 
 This statistic is appropriate because our research question asks whether one group of recipes tends to receive **higher ratings on average**. Comparing the difference in group means directly measures this relationship.
+
+### Why a Permutation Test?
+
+A permutation test is appropriate because we do not assume any particular distribution for recipe ratings. Instead of relying on theoretical assumptions, the permutation test builds a **null distribution directly from the data** by randomly shuffling ratings across the protein density groups. This allows us to evaluate whether the observed difference in mean ratings could reasonably occur if protein density and ratings were unrelated.
 
 ### Significance Level
 
@@ -227,6 +230,19 @@ The permutation test produced a **p-value of 1.0**.
 Since the p-value is much larger than the significance level of **0.05**, we **fail to reject the null hypothesis**. Based on this dataset, there is insufficient statistical evidence to conclude that recipes with higher protein density receive higher ratings than recipes with lower protein density.
 
 One possible explanation is that ratings in the dataset are heavily concentrated near the upper end of the rating scale, with many recipes receiving ratings close to **5.0**. This limited variation in ratings may make it difficult to detect meaningful relationships between nutritional features such as protein density and user ratings.
+
+---
+
+### Permutation Test Visualization
+
+The figure below shows the distribution of simulated test statistics from the permutation test, along with the observed statistic.
+
+<iframe
+    src="assets/permutation_protein_density.html"
+    width="100%"
+    height="500"
+    frameborder="0">
+</iframe>
 
 # Framing a Prediction Problem
 # Baseline Model
