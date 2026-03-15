@@ -179,6 +179,57 @@ The histogram shows that recipes with missing ratings tend to have a slightly di
 Overall, these results suggest that rating missingness is **not completely random**. While preparation time does not appear to influence whether ratings are missing, the number of ingredients shows a statistically significant relationship with missingness. Because the missingness appears to depend on an observed variable (`n_ingredients`), the missingness mechanism is likely closer to **Missing At Random (MAR)** rather than **Missing Completely At Random (MCAR)**.
 
 # Hypothesis Testing
+
+
+As mentioned in the introduction, this analysis investigates whether recipes with higher **protein density** tend to receive higher ratings from users. Protein density is defined as the amount of protein relative to the calorie content of a recipe. By comparing recipes with higher versus lower protein density, we can examine whether protein-heavy recipes tend to receive more favorable ratings.
+
+To investigate this question, we conducted a **permutation test**.
+
+### Null Hypothesis (H₀)
+
+Recipes with higher protein density and recipes with lower protein density have the **same average rating**. Any observed difference in mean ratings is due to random chance.
+
+### Alternative Hypothesis (H₁)
+
+Recipes with **higher protein density** have **higher average ratings** than recipes with lower protein density.
+
+### Test Statistic
+
+The **difference in mean average rating** between recipes with high protein density and recipes with low protein density.
+
+This statistic is appropriate because our research question asks whether one group of recipes tends to receive **higher ratings on average**. Comparing the difference in group means directly measures this relationship.
+
+### Significance Level
+
+The significance level for this test is:
+
+\[
+\alpha = 0.05
+\]
+
+### Test Procedure
+
+Recipes were divided into two groups using the **median protein density**:
+
+- Recipes above the median were classified as the **high protein density group**
+- Recipes below the median were classified as the **low protein density group**
+
+The observed difference in mean ratings between the two groups was:
+
+**Observed statistic:** −0.035
+
+To simulate the null distribution, we performed **5000 permutations**. During each permutation, the recipe ratings were randomly shuffled while keeping the protein density groups fixed. For each shuffle, we recomputed the difference in mean ratings between the two groups, generating a distribution of test statistics under the null hypothesis.
+
+### p-value
+
+The permutation test produced a **p-value of 1.0**.
+
+### Conclusion
+
+Since the p-value is much larger than the significance level of **0.05**, we **fail to reject the null hypothesis**. Based on this dataset, there is insufficient statistical evidence to conclude that recipes with higher protein density receive higher ratings than recipes with lower protein density.
+
+One possible explanation is that ratings in the dataset are heavily concentrated near the upper end of the rating scale, with many recipes receiving ratings close to **5.0**. This limited variation in ratings may make it difficult to detect meaningful relationships between nutritional features such as protein density and user ratings.
+
 # Framing a Prediction Problem
 # Baseline Model
 # Final Model
