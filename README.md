@@ -236,13 +236,43 @@ One possible explanation is that ratings in the dataset are heavily concentrated
 
 ## Prediction Problem
 
-The goal of this project is to predict the **preparation time of a recipe**, measured by the variable `minutes`. This is a **regression problem** because the response variable is a continuous numerical value.
+The goal of this project is to **predict the preparation time of a recipe**, measured by the variable `minutes`. This is a **regression problem** because the response variable is a **continuous numerical value** representing the total preparation time of a recipe.
 
-Preparation time is a useful quantity for users when deciding which recipes to cook. Predicting cooking time can help users estimate how long a recipe will take before beginning the cooking process.
+Predicting preparation time can be useful for users when choosing which recipes to cook. Many users search for recipes based on how much time they have available, so an accurate estimate of cooking time can help them decide whether a recipe fits their schedule before beginning the cooking process.
 
-At the **time of prediction**, several relevant features are already available from the recipe listing, including the number of ingredients (`n_ingredients`), the number of recipe steps (`n_steps`), and nutrition-related attributes such as calories. Because these values are known before someone begins cooking, they can be used as predictors without introducing data leakage.
+### Response Variable
 
-To evaluate model performance, I use **Root Mean Squared Error (RMSE)**. RMSE measures the typical difference between predicted preparation times and the true preparation times, expressed in minutes. I chose RMSE over other suitable metrics, such as Mean Absolute Error (MAE), because RMSE penalizes larger errors more heavily, which is useful since big mistakes in estimated cooking time would be more problematic for users.
+The response variable for this prediction task is:
+
+**`minutes` — the total preparation time of a recipe**
+
+The goal of the model is to estimate this value using information about the recipe that is available before cooking begins.
+
+### Features Available at the Time of Prediction
+
+At the time of prediction, several relevant features are already known from the recipe listing. These include:
+
+- `n_ingredients` — the number of ingredients in the recipe  
+- `n_steps` — the number of preparation steps  
+- nutritional attributes such as `calories`
+
+Because these variables are part of the recipe description itself, they are known **before a user begins cooking**. Therefore, they can be safely used as predictors without introducing **data leakage**. Information that would only be available after the cooking process (such as user ratings) is not used as input features.
+
+### Evaluation Metric
+
+To evaluate the performance of the model, I use **Root Mean Squared Error (RMSE)**.
+
+RMSE measures the typical difference between the predicted preparation time and the true preparation time, expressed in **minutes**. A lower RMSE indicates that the predicted cooking times are closer to the true values.
+
+RMSE was chosen because it **penalizes large prediction errors more heavily** than smaller ones. In this context, large errors in predicted cooking time would be especially problematic for users. For example, predicting that a recipe takes 20 minutes when it actually takes 90 minutes would be much more misleading than a small difference of a few minutes.
+
+### Why RMSE Instead of Other Metrics
+
+Metrics such as **accuracy** and **F1-score** are typically used for **classification problems**, where the goal is to predict categories or labels (for example, whether a recipe is vegetarian or not). Since the response variable in this task is a **continuous numerical value**, these metrics are not appropriate.
+
+Another possible metric for regression is **Mean Absolute Error (MAE)**. While MAE measures the average absolute prediction error, it treats all errors equally. RMSE is preferred here because it places **greater emphasis on larger errors**, which better reflects the practical goal of avoiding major mistakes in estimated cooking times.
+
+Overall, RMSE provides an interpretable measure of prediction error in **minutes** while appropriately penalizing large prediction mistakes.
 
 # Baseline Model
 # Final Model
