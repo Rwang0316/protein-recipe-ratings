@@ -110,6 +110,13 @@ To examine the relationship between nutritional composition and user ratings, I 
 
 To make the relationship easier to interpret, I divided recipes into four groups based on protein density quartiles: **Low**, **Medium-Low**, **Medium-High**, and **High**. I then used a box plot to compare the distribution of `avg_rating` across these groups.
 
+<iframe
+  src="assets/protein-rating-boxplot.html"
+  width="800"
+  height="200"
+  frameborder="0"
+></iframe>
+
 The median ratings appear fairly similar across all four protein density groups, suggesting that recipes with higher protein density do not consistently receive higher average ratings. While there may be slight differences in spread or central tendency across groups, the plot does not show a strong visual association between protein density and recipe ratings.
 
 
