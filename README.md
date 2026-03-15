@@ -168,7 +168,7 @@ The observed difference in mean number of ingredients between recipes with missi
 To better visualize this relationship, the plot below shows the distribution of the number of ingredients for recipes where ratings are missing versus those where ratings are observed.
 
 <iframe
-    src="missingness_n_ingredients.html"
+    src="assets/missingness_n_ingredients.html"
     width="850"
     height="500"
     frameborder="0">
