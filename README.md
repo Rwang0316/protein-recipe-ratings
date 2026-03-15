@@ -155,7 +155,7 @@ First, I tested whether the missingness of ratings depends on the preparation ti
 
 **Alternative Hypothesis (Hₐ):** The missingness of `rating` does depend on the preparation time (`minutes`).
 
-The observed difference in mean preparation time between recipes with missing ratings and those with ratings was approximately **51.45 minutes**. The permutation test produced a **p-value of 0.1256**, which is greater than the significance level of 0.05. Therefore, we **fail to reject the null hypothesis**, suggesting that the missingness of ratings does not appear to depend on preparation time.
+The observed difference in mean preparation time between recipes with missing ratings and those with ratings was approximately **51.45 minutes**. The permutation test produced a **p-value of 0.1166**, which is greater than the significance level of 0.05. Therefore, we **fail to reject the null hypothesis**, suggesting that the missingness of ratings does not appear to depend on preparation time.
 
 Next, I tested whether the missingness of ratings depends on the **number of ingredients (`n_ingredients`)** in a recipe.
 
@@ -167,7 +167,12 @@ The observed difference in mean number of ingredients between recipes with missi
 
 To better visualize this relationship, the plot below shows the distribution of the number of ingredients for recipes where ratings are missing versus those where ratings are observed.
 
-
+<iframe
+    src="missingness_n_ingredients.html"
+    width="850"
+    height="500"
+    frameborder="0">
+</iframe>
 
 The histogram shows that recipes with missing ratings tend to have a slightly different distribution of ingredient counts compared to recipes with observed ratings. This visual difference supports the permutation test result, suggesting that the number of ingredients is related to whether a recipe receives a rating.
 
