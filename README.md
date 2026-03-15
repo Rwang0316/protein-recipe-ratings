@@ -134,7 +134,7 @@ The table reports summary statistics of average recipe ratings within each prote
 
 Across the four groups, the average ratings range from approximately **4.60 to 4.66**, and the median rating is **5.0 for all groups**. The standard deviations are also very similar, indicating that the spread of ratings is comparable across protein density levels.
 
-These aggregate statistics provide a numerical summary of how ratings are distributed within each group and help guide the next step of the analysis: formally testing whether any observed differences in ratings across protein density levels are statistically significant.
+These aggregate statistics provide a numerical summary of how ratings are distributed within each group and help guide the next step of the analysis: **formally testing whether any observed differences in ratings across protein density levels are statistically significant.**
 
 
 
