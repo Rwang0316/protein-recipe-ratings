@@ -231,20 +231,19 @@ Since the p-value is much larger than the significance level of **0.05**, we **f
 
 One possible explanation is that ratings in the dataset are heavily concentrated near the upper end of the rating scale, with many recipes receiving ratings close to **5.0**. This limited variation in ratings may make it difficult to detect meaningful relationships between nutritional features such as protein density and user ratings.
 
----
-
-### Permutation Test Visualization
-
-The figure below shows the distribution of simulated test statistics from the permutation test, along with the observed statistic.
-
-<iframe
-    src="assets/permutation_protein_density.html"
-    width="100%"
-    height="500"
-    frameborder="0">
-</iframe>
 
 # Framing a Prediction Problem
+
+## Prediction Problem
+
+The goal of this project is to predict the **preparation time of a recipe**, measured by the variable `minutes`. This is a **regression problem** because the response variable is a continuous numerical value.
+
+Preparation time is a useful quantity for users when deciding which recipes to cook. Predicting cooking time can help users estimate how long a recipe will take before beginning the cooking process.
+
+At the **time of prediction**, several relevant features are already available from the recipe listing, including the number of ingredients (`n_ingredients`), the number of recipe steps (`n_steps`), and nutrition-related attributes such as calories. Because these values are known before someone begins cooking, they can be used as predictors without introducing data leakage.
+
+To evaluate model performance, I use **Root Mean Squared Error (RMSE)**. RMSE measures the typical difference between predicted preparation times and the true preparation times, expressed in minutes. I chose RMSE over other suitable metrics, such as Mean Absolute Error (MAE), because RMSE penalizes larger errors more heavily, which is useful since big mistakes in estimated cooking time would be more problematic for users.
+
 # Baseline Model
 # Final Model
 # Fairness Analysis
