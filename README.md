@@ -1,42 +1,46 @@
 # Do High-Protein Recipes Actually Get Better Ratings?
 
-### Richard Wang
+### Author: Richard Wang
 
 ### Dataset Overview
 
-For this project, I am using the Food.com Recipes dataset, which combines recipe-level information with user ratings. The dataset was created by merging the RAW_recipes and interactions datasets to compute the average rating for each recipe.
+This project uses the **Food.com Recipes dataset**, which combines recipe-level information with user interaction data. The dataset was constructed by merging two tables: `RAW_recipes`, which contains detailed information about each recipe, and `interactions`, which contains user ratings and reviews. After merging these datasets, I computed the **average rating for each recipe** to summarize user feedback.
 
-The merged dataset contains one row per recipe and includes detailed nutritional information, preparation details, and aggregated user ratings.
+The final merged dataset contains **78,167 recipes**, with each row representing a single recipe. The dataset includes information about recipe preparation details, nutritional content, and aggregated user ratings.
 
-After cleaning and merging, the dataset contains 78167 recipes.
+---
 
 ### Research Question
 
-This project is centered around the following question:
+The central question for this project is:
 
-Are recipes with higher protein density associated with higher average user ratings?
+**Are recipes with higher protein density associated with higher average user ratings?**
 
-Rather than examining absolute protein amount alone, this project focuses on protein density — the amount of protein relative to the recipe’s calorie content. This allows for a more meaningful comparison across recipes of different sizes and total caloric values.
+Rather than examining the absolute amount of protein in a recipe, I focus on **protein density**, defined as the amount of protein relative to the recipe’s calorie content. This approach allows for more meaningful comparisons across recipes with different serving sizes and total caloric values.
+
+---
 
 ### Why This Question Matters
 
-In recent years, many brands actively market their food products and recipes as “high protein” to attract more customers. Protein has become a strong selling point in the food industry, often associated with health, fitness, and overall quality.
+In recent years, many food brands and recipes have increasingly marketed themselves as **“high protein.”** Protein is commonly associated with health, fitness, and nutritional quality, and it has become a strong marketing signal in the food industry.
 
-However, higher absolute protein does not necessarily mean a recipe is protein-dominant relative to its total nutritional profile. A high-calorie recipe may contain a large amount of protein but still be nutritionally unbalanced.
+However, a recipe with a high absolute amount of protein may also contain a large number of calories, meaning that protein may not actually dominate its nutritional profile. Examining **protein density** instead of raw protein content provides a clearer picture of how protein-heavy a recipe truly is.
 
-By investigating whether protein density is associated with user ratings, this project explores whether consumers truly prefer protein-heavy recipes or whether protein primarily functions as a marketing signal. Understanding this relationship provides insight into consumer behavior and the extent to which nutritional composition influences perceived quality.
+By studying the relationship between protein density and user ratings, this project investigates whether consumers genuinely prefer protein-dense recipes or whether protein primarily serves as a marketing signal. This analysis provides insight into how nutritional composition may influence user perceptions of recipe quality.
+
+---
 
 ### Relevant Columns
 
-The following columns are central to this analysis:
+Several variables in the dataset are particularly important for this analysis:
 
-**avg_rating**
-The average rating given to a recipe by users (continuous variable from 1 to 5). This is the primary outcome variable.
+**avg_rating**  
+The average rating given to a recipe by users, ranging from 1 to 5. This is the primary outcome variable used to measure recipe popularity.
 
-**protein_pdv**
-The percent daily value of protein contained in the recipe. This represents the amount of protein in the recipe.
+**protein_pdv**  
+The percent daily value (PDV) of protein contained in the recipe. This represents the relative amount of protein in the dish.
 
-**calories**
-The total calorie content of the recipe. This is used to contextualize protein levels and allows for the creation of a protein density measure (protein relative to total calories).
+**calories**  
+The total calorie content of the recipe. This variable provides context for interpreting protein levels.
 
-From these variables, I construct a derived feature — **protein density** — to better capture how protein-dominant a recipe is relative to its overall caloric content.
+Using these variables, I construct a derived feature called **protein density**, which represents the amount of protein relative to total calories. This feature helps capture how protein-dominant a recipe is within its overall nutritional profile.
