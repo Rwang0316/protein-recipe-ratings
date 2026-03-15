@@ -47,7 +47,6 @@ The total calorie content of the recipe. This variable provides context for inte
 
 Using these variables, I construct a derived feature called **protein density**, which represents the amount of protein relative to total calories. This feature helps capture how protein-dominant a recipe is within its overall nutritional profile.
 
-
 # Data Cleaning and Exploratory Data Analysis
 
 ## Data Cleaning
@@ -136,12 +135,18 @@ Across the four groups, the average ratings range from approximately **4.60 to 4
 
 These aggregate statistics provide a numerical summary of how ratings are distributed within each group and help guide the next step of the analysis: **formally testing whether any observed differences in ratings across protein density levels are statistically significant.**
 
-
-
-
-
-
 # Assessment of Missingness
+
+## MNAR Analysis
+
+One column that may plausibly be **MNAR (Missing Not At Random)** is the `rating` column in the merged dataset. In this dataset, a rating is only recorded when a user chooses to leave a review. If a recipe has not received any reviews, its rating will be missing. Because users are more likely to rate recipes they strongly like or dislike, the probability that a rating is missing may depend on the underlying rating behavior itself. In other words, recipes that receive moderate or neutral reactions may simply go unrated, making the missingness dependent on the unobserved rating value and therefore potentially **MNAR**.
+
+This missingness is important for the analysis because the earlier sections examined relationships between **protein density and observed recipe ratings**. If ratings are more likely to appear for recipes that generate stronger user reactions, the observed ratings may not fully represent all recipes in the dataset. This means that the ratings used in the bivariate analysis and aggregate statistics may reflect a subset of recipes that users chose to review.
+
+Additional information about **recipe popularity or user engagement**, such as the number of page views, number of times a recipe appears in search results, or how frequently users interact with the recipe page, could help explain why some recipes receive ratings while others do not. If such variables were available, they might help model the probability that a recipe receives a rating and potentially make the missingness closer to **MAR (Missing At Random)** rather than MNAR.
+
+
+
 # Hypothesis Testing
 # Framing a Prediction Problem
 # Baseline Model
