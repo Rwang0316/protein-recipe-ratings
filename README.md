@@ -145,7 +145,33 @@ This missingness is important for the analysis because the earlier sections exam
 
 Additional information about **recipe popularity or user engagement**, such as the number of page views, number of times a recipe appears in search results, or how frequently users interact with the recipe page, could help explain why some recipes receive ratings while others do not. If such variables were available, they might help model the probability that a recipe receives a rating and potentially make the missingness closer to **MAR (Missing At Random)** rather than MNAR.
 
+## Missingness Dependency
 
+To investigate whether missing ratings occur systematically in the dataset, I performed permutation tests to determine whether the missingness of the `rating` column depends on other variables.
+
+First, I tested whether the missingness of ratings depends on the preparation time (`minutes`) of a recipe.
+
+**Null Hypothesis (H₀):** The missingness of `rating` does not depend on the preparation time (`minutes`).
+
+**Alternative Hypothesis (Hₐ):** The missingness of `rating` does depend on the preparation time (`minutes`).
+
+The observed difference in mean preparation time between recipes with missing ratings and those with ratings was approximately **51.45 minutes**. The permutation test produced a **p-value of 0.1256**, which is greater than the significance level of 0.05. Therefore, we **fail to reject the null hypothesis**, suggesting that the missingness of ratings does not appear to depend on preparation time.
+
+Next, I tested whether the missingness of ratings depends on the **number of ingredients (`n_ingredients`)** in a recipe.
+
+**Null Hypothesis (H₀):** The missingness of `rating` does not depend on the number of ingredients.
+
+**Alternative Hypothesis (Hₐ):** The missingness of `rating` does depend on the number of ingredients.
+
+The observed difference in mean number of ingredients between recipes with missing ratings and those with ratings was approximately **0.16 ingredients**. The permutation test produced a **p-value close to 0**, which is much smaller than 0.05. Therefore, we **reject the null hypothesis**, indicating strong evidence that the missingness of ratings is associated with the number of ingredients in a recipe.
+
+To better visualize this relationship, the plot below shows the distribution of the number of ingredients for recipes where ratings are missing versus those where ratings are observed.
+
+
+
+The histogram shows that recipes with missing ratings tend to have a slightly different distribution of ingredient counts compared to recipes with observed ratings. This visual difference supports the permutation test result, suggesting that the number of ingredients is related to whether a recipe receives a rating.
+
+Overall, these results suggest that rating missingness is **not completely random**. While preparation time does not appear to influence whether ratings are missing, the number of ingredients shows a statistically significant relationship with missingness. Because the missingness appears to depend on an observed variable (`n_ingredients`), the missingness mechanism is likely closer to **Missing At Random (MAR)** rather than **Missing Completely At Random (MCAR)**.
 
 # Hypothesis Testing
 # Framing a Prediction Problem
